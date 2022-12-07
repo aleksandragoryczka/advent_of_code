@@ -42,8 +42,8 @@ rules = input[1].splitlines()
 for row in rules:
     numbers_list = re.findall(r'\d+', row)
 
-    for val in stacks[int(numbers_list[1])-1][-int(numbers_list[0]):]:
-        stacks[int(numbers_list[2])-1].append(val)
+    for i in range(int(numbers_list[0])):
+        stacks[int(numbers_list[2])-1].append(stacks[int(numbers_list[1])-1][-1])
         stacks[int(numbers_list[1])-1].pop()  
 
 stacks_top_string = "".join([stack[-1] for stack in stacks])
